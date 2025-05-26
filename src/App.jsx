@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Productos from './pages/Productos';
 import Contacto from './pages/Contacto';
