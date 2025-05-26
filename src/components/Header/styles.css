@@ -1,0 +1,62 @@
+.custom-navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+    background-color: #ffffff !important;
+    z-index: 1000;
+}
+
+/* Añadir padding-top al body para compensar el navbar fijo */
+body {
+    padding-top: 76px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: #34495e !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link:hover {
+    color: #3498db !important;
+}
+
+.nav-link svg {
+    font-size: 1.2rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 991.98px) {
+    .custom-navbar {
+        padding: 0.5rem 0;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0;
+        margin: 0;
+        justify-content: center;
+    }
+
+    .navbar-collapse {
+        background-color: #ffffff;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Ajustar padding-top para móviles */
+    body {
+        padding-top: 62px;
+    }
+} 
