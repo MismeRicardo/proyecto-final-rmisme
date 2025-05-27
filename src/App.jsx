@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
 import RutaProtegida from './components/RutaProtegida';
+import ProductoDetalle from './pages/ProductoDetalle';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>}/> 
             <Route path='/productos' element={<Productos/>}/>
+            <Route path='/productos/:id' element={<ProductoDetalle/>}/>
             <Route path='/contacto' element={<Contacto/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route

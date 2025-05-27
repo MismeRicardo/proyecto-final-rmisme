@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Card, Button, Container, Row, Col, Badge } from 'react-bootstrap';
 import { FaTshirt, FaLaptop, FaGem } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import './Productos.css';
 
 const Productos = () => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+    const navigate = useNavigate();
 
     const categorias = [
         {
@@ -52,6 +55,10 @@ const Productos = () => {
         ? productos.filter(producto => producto.category.includes(categoriaSeleccionada))
         : productos;
 
+    const handleImageClick = (id) => {
+        navigate(`/productos/${id}`);
+    };
+
     if (loading) return (
         <Container className="text-center mt-5">
             <h2>Cargando productos...</h2>
@@ -72,7 +79,7 @@ const Productos = () => {
                 <Row className="g-3">
                     <Col xs={12}>
                         <div className="d-flex gap-3 flex-wrap">
-                            <Badge 
+                            <Badge
                                 bg={categoriaSeleccionada === null ? "primary" : "secondary"}
                                 style={{ cursor: "pointer", padding: "10px 20px" }}
                                 onClick={() => setCategoriaSeleccionada(null)}
@@ -103,9 +110,13 @@ const Productos = () => {
                 {productosFiltrados.map((producto) => (
                     <Col key={producto.id}>
                         <Card className="h-100 shadow-sm">
-                            <div className="text-center" style={{ height: '200px', overflow: 'hidden' }}>
-                                <Card.Img 
-                                    variant="top" 
+                            <div 
+                                className="text-center" 
+                                style={{ height: '200px', overflow: 'hidden', cursor: 'pointer' }}
+                                onClick={() => handleImageClick(producto.id)}
+                            >
+                                <Card.Img
+                                    variant="top"
                                     src={producto.image}
                                     style={{ 
                                         height: '100%', 
