@@ -1,0 +1,330 @@
+.editar-producto-container {
+    padding: 2rem 0;
+    min-height: 80vh;
+}
+
+.page-title {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+.btn-volver {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #6c757d;
+}
+
+.btn-volver:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.form-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+    border: none;
+    padding: 1.25rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-input {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.form-input:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+    outline: none;
+}
+
+.form-input:disabled {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+    margin-top: 2rem;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
+}
+
+.btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(243, 156, 18, 0.4);
+}
+
+.btn-submit:disabled {
+    background: #6c757d;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+.image-preview {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #dee2e6;
+}
+
+.preview-image {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+/* Estados especiales para edición */
+.loading-state {
+    padding: 4rem 2rem;
+}
+
+.not-found-state {
+    padding: 4rem 2rem;
+}
+
+.not-found-state h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Indicador de cambios sin guardar */
+.text-warning.bg-dark {
+    font-size: 0.75rem;
+    border-radius: 4px !important;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Estilos para textarea */
+textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Estilos para select */
+select.form-input {
+    cursor: pointer;
+}
+
+select.form-input option {
+    padding: 0.5rem;
+}
+
+/* Alertas personalizadas */
+.alert {
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.alert-success {
+    background-color: #d1edff;
+    color: #0c5460;
+    border-left: 4px solid #20c997;
+}
+
+/* Animaciones */
+.form-card {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estados de validación */
+.was-validated .form-input:valid {
+    border-color: #28a745;
+}
+
+.was-validated .form-input:invalid {
+    border-color: #dc3545;
+}
+
+/* Botón de deshacer cambios */
+button[type="button"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .editar-producto-container {
+        padding: 1rem 0;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-volver {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+    
+    .form-header {
+        padding: 1rem;
+    }
+    
+    .form-input {
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+    
+    .preview-image {
+        max-width: 150px;
+        max-height: 150px;
+    }
+    
+    .loading-state,
+    .not-found-state {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .editar-producto-container {
+        padding: 0.5rem 0;
+    }
+    
+    .form-card {
+        margin: 0 0.5rem;
+    }
+    
+    .page-title {
+        font-size: 1.25rem;
+    }
+    
+    .form-label {
+        font-size: 0.85rem;
+    }
+    
+    .form-input {
+        padding: 0.6rem 0.8rem;
+        font-size: 16px;
+    }
+    
+    .btn-submit {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .preview-image {
+        max-width: 120px;
+        max-height: 120px;
+    }
+    
+    .image-preview {
+        padding: 0.75rem;
+        text-align: center;
+    }
+    
+    .loading-state,
+    .not-found-state {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .not-found-state h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Estados de focus mejorados */
+.form-input:focus-within {
+    border-color: #f39c12;
+    box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+}
+
+/* Mejora de accesibilidad */
+.form-input:focus-visible {
+    outline: 2px solid #f39c12;
+    outline-offset: 2px;
+}
+
+/* Loading state para el formulario */
+.form-card.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.form-card.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+} 

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Card, Button, Container, Row, Col, Badge } from 'react-bootstrap';
-import { FaTshirt, FaLaptop, FaGem } from 'react-icons/fa';
+import { FaTshirt, FaLaptop, FaGem, FaShoppingCart, FaCheck } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useCarrito } from '../contexts/CarritoContext';
 import './Productos.css';
 
 const Productos = () => {
@@ -10,6 +11,7 @@ const Productos = () => {
     const [error, setError] = useState(null);
     const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
     const navigate = useNavigate();
+    const { agregarProducto, estaEnCarrito } = useCarrito();
 
     const categorias = [
         {
@@ -38,12 +40,13 @@ const Productos = () => {
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                const response = await fetch('https://fakestoreapi.com/products');
+                const response = await fetch('https://6839b4a46561b8d882b1637c.mockapi.io/api/v1/products');
                 const data = await response.json();
                 setProductos(data);
-            } catch (err) {
-                setError('Error al llamar a la API');
-            } finally {
+                setLoading(false);
+            } catch (error) {
+                console.error('Error al cargar productos:', error);
+                setError('Error al cargar los productos');
                 setLoading(false);
             }
         };
@@ -57,6 +60,10 @@ const Productos = () => {
 
     const handleImageClick = (id) => {
         navigate(`/productos/${id}`);
+    };
+
+    const handleAgregarCarrito = (producto) => {
+        agregarProducto(producto);
     };
 
     if (loading) return (
@@ -134,8 +141,22 @@ const Productos = () => {
                                     <div className="d-flex justify-content-between align-items-center mb-2">
                                         <h5 className="mb-0">${producto.price}</h5>
                                     </div>
-                                    <Button variant="primary" className="w-100">
-                                        Agregar al carrito
+                                    <Button 
+                                        variant={estaEnCarrito(producto.id) ? "success" : "primary"} 
+                                        className="w-100"
+                                        onClick={() => handleAgregarCarrito(producto)}
+                                    >
+                                        {estaEnCarrito(producto.id) ? (
+                                            <>
+                                                <FaCheck className="me-2" />
+                                                En el carrito
+                                            </>
+                                        ) : (
+                                            <>
+                                                <FaShoppingCart className="me-2" />
+                                                Agregar al carrito
+                                            </>
+                                        )}
                                     </Button>
                                 </div>
                             </Card.Body>

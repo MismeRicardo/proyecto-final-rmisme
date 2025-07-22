@@ -1,0 +1,294 @@
+.agregar-producto-container {
+    padding: 2rem 0;
+    min-height: 80vh;
+}
+
+.page-title {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+.btn-volver {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #6c757d;
+}
+
+.btn-volver:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.form-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1.25rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-input {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.form-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    outline: none;
+}
+
+.form-input:disabled {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+    margin-top: 2rem;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+}
+
+.btn-submit:disabled {
+    background: #6c757d;
+    transform: none;
+    box-shadow: none;
+}
+
+.image-preview {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #dee2e6;
+}
+
+.preview-image {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+/* Estilos para textarea */
+textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Estilos para select */
+select.form-input {
+    cursor: pointer;
+}
+
+select.form-input option {
+    padding: 0.5rem;
+}
+
+/* Alertas personalizadas */
+.alert {
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.alert-success {
+    background-color: #d1edff;
+    color: #0c5460;
+    border-left: 4px solid #20c997;
+}
+
+/* Animaciones */
+.form-card {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Indicadores de campos requeridos */
+.form-label::after {
+    content: "";
+}
+
+.form-label:has-text("*")::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Estados de validación */
+.was-validated .form-input:valid {
+    border-color: #28a745;
+}
+
+.was-validated .form-input:invalid {
+    border-color: #dc3545;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .agregar-producto-container {
+        padding: 1rem 0;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-volver {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+    
+    .form-header {
+        padding: 1rem;
+    }
+    
+    .form-input {
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+    
+    .preview-image {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .agregar-producto-container {
+        padding: 0.5rem 0;
+    }
+    
+    .form-card {
+        margin: 0 0.5rem;
+    }
+    
+    .page-title {
+        font-size: 1.25rem;
+    }
+    
+    .form-label {
+        font-size: 0.85rem;
+    }
+    
+    .form-input {
+        padding: 0.6rem 0.8rem;
+        font-size: 16px;
+    }
+    
+    .btn-submit {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .preview-image {
+        max-width: 120px;
+        max-height: 120px;
+    }
+    
+    .image-preview {
+        padding: 0.75rem;
+        text-align: center;
+    }
+}
+
+/* Estados de focus mejorados */
+.form-input:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* Mejora de accesibilidad */
+.form-input:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Loading state para el formulario */
+.form-card.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.form-card.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+} 

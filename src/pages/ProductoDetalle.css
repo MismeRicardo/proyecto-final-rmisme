@@ -1,6 +1,7 @@
 .producto-detalle {
-    padding: 4rem 0;
-    margin-top: 2rem;
+    padding: 2rem 0;
+    margin-top: 1rem;
+    min-height: 60vh;
 }
 
 .imagen-container {
@@ -11,11 +12,16 @@
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-top: 1rem;
+    margin-bottom: 2rem;
+    min-height: 400px;
+    height: auto;
 }
 
 .producto-imagen {
-    max-height: 400px;
+    max-height: 450px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -25,43 +31,77 @@
 }
 
 .producto-titulo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
     color: #2c3e50;
+    font-weight: 600;
 }
 
 .producto-categoria {
     color: #7f8c8d;
     text-transform: capitalize;
     margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 .producto-descripcion {
     color: #34495e;
     line-height: 1.6;
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .producto-precio-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
     margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
 }
 
 .producto-precio {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #2c3e50;
     margin: 0;
+    font-weight: 700;
+    text-align: center;
 }
 
 .btn-comprar {
     padding: 0.75rem 2rem;
     font-size: 1.1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 .btn-comprar:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .producto-detalle {
+        padding: 1rem 0;
+    }
+    
+    .producto-titulo {
+        font-size: 1.5rem;
+    }
+    
+    .producto-precio {
+        font-size: 1.8rem;
+    }
+    
+    .imagen-container {
+        padding: 1rem;
+        min-height: 250px;
+    }
+    
+    .producto-imagen {
+        max-height: 300px;
+    }
 } 

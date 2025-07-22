@@ -1,78 +1,182 @@
 .login-container {
-    min-height: calc(100vh - 200px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 160px);
+  background-color: #f8f9fa;
 }
 
 .login-card {
-    max-width: 400px;
-    width: 100%;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+  max-width: 450px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
 }
 
 .login-card .card-body {
-    padding: 2rem;
+  padding: 2rem;
+}
+
+.login-card h2 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.login-card p {
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  color: #495057;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .input-group {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
 }
 
 .input-group-text {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-right: none;
-    color: #6c757d;
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  color: #6c757d;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-control {
-    border: 1px solid #ced4da;
-    border-left: none;
-    padding: 0.75rem 1rem;
+  padding: 0.75rem;
+  border-color: #dee2e6;
 }
 
 .form-control:focus {
-    box-shadow: none;
-    border-color: #ced4da;
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.input-group:focus-within .input-group-text {
+  border-color: #667eea;
+  background-color: rgba(102, 126, 234, 0.1);
+  color: #667eea;
 }
 
 .btn-primary {
-    padding: 0.75rem;
-    font-weight: 500;
-    border-radius: 8px;
-    background-color: #3498db;
-    border-color: #3498db;
-    transition: all 0.3s ease;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.75rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-    background-color: #2980b9;
-    border-color: #2980b9;
-    transform: translateY(-1px);
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-.alert {
-    border-radius: 8px;
-    font-size: 0.9rem;
+.btn-primary:disabled {
+  opacity: 0.7;
+  transform: none;
 }
 
-a {
-    color: #3498db;
-    transition: color 0.3s ease;
+.demo-accounts {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
 }
 
-a:hover {
-    color: #2980b9;
+.demo-accounts h6 {
+  color: #2c3e50;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.user-credentials {
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background: white;
+}
+
+.user-credentials strong {
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.credential-info {
+  margin-left: 1.5rem;
+  font-size: 0.85rem;
+  color: #495057;
+}
+
+.credential-info div {
+  margin-bottom: 0.25rem;
+}
+
+.alert-info {
+  background-color: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: #2c3e50;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.alert-danger {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+hr {
+  margin: 1.5rem 0;
+  opacity: 0.3;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .login-card .card-body {
+    padding: 1.5rem;
+  }
+  
+  .demo-accounts {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 576px) {
-    .login-card .card-body {
-        padding: 1.5rem;
-    }
+  .login-card .card-body {
+    padding: 1.25rem;
+  }
+  
+  .demo-accounts {
+    padding: 0.75rem;
+  }
+  
+  .user-credentials {
+    padding: 0.75rem;
+  }
+  
+  .credential-info {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+  }
 } 
