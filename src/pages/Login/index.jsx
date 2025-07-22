@@ -16,10 +16,10 @@ export default function Login() {
     });
     const [error, setError] = useState('');
 
-    // Obtener ruta de redirección de los parámetros de URL
+ 
     const redirectPath = new URLSearchParams(location.search).get('redirect') || '/';
 
-    // Redirigir si ya está autenticado
+
     useEffect(() => {
         if (isAuthenticated) {
             navigate(redirectPath, { replace: true });
@@ -39,7 +39,6 @@ export default function Login() {
         e.preventDefault();
         setError('');
 
-        // Validación básica
         if (!formData.email || !formData.password) {
             setError('Por favor complete todos los campos');
             return;
@@ -49,7 +48,6 @@ export default function Login() {
             const result = await login(formData.email, formData.password);
             
             if (result.success) {
-                // El AuthContext ya maneja localStorage, solo navegamos
                 navigate(redirectPath, { replace: true });
             } else {
                 setError(result.error);

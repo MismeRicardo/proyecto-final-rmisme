@@ -21,11 +21,11 @@ const Carrito = () => {
   };
 
   const formatearPrecio = (precio) => {
-    return new Intl.NumberFormat('es-CO', {
+    return new Intl.NumberFormat('es-AR', {
       style: 'currency',
-      currency: 'COP',
+      currency: 'ARS',
       minimumFractionDigits: 0
-    }).format(precio * 1000); // Multiplicamos por 1000 para simular precios en pesos colombianos
+    }).format(precio * 1000);
   };
 
   if (productos.length === 0) {

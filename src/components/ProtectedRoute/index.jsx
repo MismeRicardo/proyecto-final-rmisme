@@ -14,7 +14,7 @@ const ProtectedRoute = ({
   const { isAuthenticated, loading, hasRole, user } = useAuth();
   const location = useLocation();
 
-  // Mostrar loading mientras se verifica la autenticación
+
   if (loading) {
     return (
       <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
@@ -28,7 +28,7 @@ const ProtectedRoute = ({
     );
   }
 
-  // Si requiere autenticación pero no está autenticado
+
   if (requireAuth && !isAuthenticated) {
     if (showFallback) {
       return (
@@ -68,11 +68,9 @@ const ProtectedRoute = ({
       );
     }
     
-    // Redirigir con la ruta actual para volver después del login
     return <Navigate to={`${redirectTo}?redirect=${encodeURIComponent(location.pathname)}`} replace />;
   }
 
-  // Si requiere un rol específico pero no lo tiene
   if (requiredRole && !hasRole(requiredRole)) {
     if (showFallback) {
       return (
@@ -111,11 +109,9 @@ const ProtectedRoute = ({
     return <Navigate to="/" replace />;
   }
 
-  // Si pasa todas las validaciones, renderizar el contenido protegido
   return children;
 };
 
-// Componente específico para rutas que requieren admin
 export const AdminRoute = ({ children, ...props }) => {
   return (
     <ProtectedRoute requiredRole="admin" {...props}>
@@ -124,7 +120,6 @@ export const AdminRoute = ({ children, ...props }) => {
   );
 };
 
-// Componente específico para rutas que solo requieren estar logueado
 export const AuthRoute = ({ children, ...props }) => {
   return (
     <ProtectedRoute requireAuth={true} {...props}>
@@ -133,7 +128,6 @@ export const AuthRoute = ({ children, ...props }) => {
   );
 };
 
-// Componente para rutas públicas (no requieren autenticación)
 export const PublicRoute = ({ children, redirectIfAuthenticated = null }) => {
   const { isAuthenticated, loading } = useAuth();
 
@@ -147,7 +141,6 @@ export const PublicRoute = ({ children, redirectIfAuthenticated = null }) => {
     );
   }
 
-  // Si está autenticado y se especifica redirección
   if (isAuthenticated && redirectIfAuthenticated) {
     return <Navigate to={redirectIfAuthenticated} replace />;
   }
